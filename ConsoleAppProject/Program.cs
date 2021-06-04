@@ -10,13 +10,13 @@ namespace ConsoleAppProject
     /// to start Apps 01 to 05 for CO453 CW1
     /// 
     /// This Project has been modified by:
-    /// Derek Peacock 14/12/2020
+    /// Taku Gotora 04/06/2021
     /// </summary>
     public static class Program
     {
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine();
