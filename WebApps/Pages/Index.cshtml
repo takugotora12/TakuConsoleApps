@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Taku Home Page";
+}
+
+<header class="text-center jumbotron justify-content-center">
+    <h1 class="display-4">CO453 Application Programming</h1>
+    <h2>by Taku Gotora</h2>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</header>
+<section>
+    <ol class="list-group-item">
+        <li class="list-group-item">
+
+            <a class="btn btn-success" asp-controller="Home"
+               asp-action="DistanceConverter">App01: Distance Converter</a>
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-info" asp-controller="Home"
+               asp-action="BMICalculator">App02: Body Mass Index Calculator</a>
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-warning" asp-controller="Students"
+               asp-action="Index">App03: Student Marks</a>
+        </li>
+
+    </ol>
+</section>
