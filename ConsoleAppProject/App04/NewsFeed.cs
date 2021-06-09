@@ -15,21 +15,27 @@ namespace ConsoleAppProject.App04
     /// search or ordering functions.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
+    ///  Taku Gotora
     ///  version 0.1
     ///</author> 
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        public const string Author = "Taku Gotora";
+
+        private readonly List<Post> posts;
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
-            messages = new List<MessagePost>();
-            photos = new List<PhotoPost>();
+            posts = new List<Post>();
+
+            //testing data only
+            MessagePost post = new MessagePost(Author, "I love Visual Studio 2019");
+            AddMessagePost(post);
+            PhotoPost photoPost = new PhotoPost(Author, "Photo1.jpg", "Visual Studio 2019");
+            AddPhotoPost(photoPost);
         }
 
 
@@ -40,7 +46,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            messages.Add(message);
+            posts.Add(message);
         }
 
         ///<summary>
@@ -50,26 +56,19 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
-            photos.Add(photo);
+            posts.Add(photo);
         }
 
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. (To do: replace this later with display in web browser.)
+        /// terminal. 
         ///</summary>
         public void Display()
         {
             // display all text posts
-            foreach (MessagePost message in messages)
+            foreach (Post post in posts)
             {
-                message.Display();
-                Console.WriteLine();   // empty line between posts
-            }
-
-            // display all photos
-            foreach (PhotoPost photo in photos)
-            {
-                photo.Display();
+                post.Display();
                 Console.WriteLine();   // empty line between posts
             }
         }

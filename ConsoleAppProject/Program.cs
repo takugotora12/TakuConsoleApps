@@ -1,5 +1,8 @@
-﻿using ConsoleAppProject.App03;
-using ConsoleAppProject.Helpers;
+﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
+
 using System;
 
 namespace ConsoleAppProject
@@ -16,20 +19,48 @@ namespace ConsoleAppProject
     {
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine();
+            Console.WriteLine("                 Welcome!                    ");
+            Console.WriteLine("      Please select your application         ");
+            Console.WriteLine("  For Distance Converter please select 1 >   ");
+            Console.WriteLine("    For BMI Calculator please select 2 >     ");
+            Console.WriteLine("    For Student Grades please select 3 >     ");
+            Console.WriteLine("    For ***** please select 4 >     ");
 
-            // Using an extension method for each enumeration
-            Console.WriteLine("Using MyEnum Extension Method!\n");
-            Console.WriteLine("MyEnum Value = " + MyEnum.FirstValue);
-            Console.WriteLine("MyEnum Friendly Value = " + MyEnum.FirstValue.EnumValue());
-            Console.WriteLine();
 
-            // Using an extension method for any enumeration
-            StudentGrades grades = new StudentGrades();
-            grades.TestGradesEnumeration();
+            string choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                DistanceConverter converter = new DistanceConverter();
+
+                converter.ConvertDistance();
+            }
+            else if (choice == "2")
+            {
+                BMICalculator calculator = new BMICalculator();
+                calculator.Run();
+            }
+            else if (choice == "3")
+            {
+                StudentGrades calculator = new StudentGrades();
+                calculator.Run();
+            }
+            else if (choice == "4")
+            {
+                NetworkApp app04 = new NetworkApp();
+                app04.DisplayMenu();
+            }
+            else
+            {
+                Console.WriteLine("                                    ");
+                Console.WriteLine("       ***ERROR MESSAGE***          ");
+                Console.WriteLine("You have not selected a valid option");
+                Console.WriteLine("   Please restart the program...    ");
+            }
         }
     }
 }
