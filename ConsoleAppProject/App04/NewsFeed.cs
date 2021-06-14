@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ConsoleAppProject.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConsoleAppProject.App04
 {
@@ -20,8 +21,7 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
-        public const string Author = "Taku Gotora";
-
+        public const string AUTHOR = "Taku Gotora";
         private readonly List<Post> posts;
 
         ///<summary>
@@ -30,12 +30,12 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
-
-            //testing data only
-            MessagePost post = new MessagePost(Author, "I love Visual Studio 2019");
+            MessagePost post = new MessagePost(AUTHOR, "Visual Studio 2019is the best!");
             AddMessagePost(post);
-            PhotoPost photoPost = new PhotoPost(Author, "Photo1.jpg", "Visual Studio 2019");
+
+            PhotoPost photoPost = new PhotoPost(AUTHOR, "Photos1.jpg", "Visual Studio 2019");
             AddPhotoPost(photoPost);
+
         }
 
 
@@ -46,7 +46,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            posts.Add(message);
+            ///posts.Add(message);
         }
 
         ///<summary>
@@ -59,18 +59,56 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID = {id} does not exist!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following Post {id} has been removed!\n");
+
+                posts.Remove(post);
+                Console.WriteLine(post.ToString());
+
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. 
+        /// terminal. (To do: replace this later with display in web browser.)
         ///</summary>
         public void Display()
         {
-            // display all text posts
+            //display all text posts
             foreach (Post post in posts)
             {
-                post.Display();
-                Console.WriteLine();   // empty line between posts
+                Console.WriteLine(post.ToString());
+
             }
+
         }
     }
 
