@@ -11,7 +11,7 @@ namespace ConsoleAppProject.App02
     /// In either imperial or metric units. 
     /// </summary>
     /// <author>
-    /// Taku Gotora
+    /// Takudzwa Gotora
     /// </author>
     public class BMICalculator
     {
