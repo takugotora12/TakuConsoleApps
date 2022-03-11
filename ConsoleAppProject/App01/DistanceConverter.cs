@@ -187,7 +187,7 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine("\n-------------------------------");
             Console.WriteLine("\n     Distance Converter        ");
-            Console.WriteLine("\n       by TAKU GOTORA        ");
+            Console.WriteLine("\n       by TAKUDZWA GOTORA        ");
             Console.WriteLine("\n-------------------------------\n");
         }
 
